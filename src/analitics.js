@@ -10,7 +10,7 @@ function createAnalitics() {
     printTime()
     $('#destroy').on('click', () => $('#desptoyp').html('is destroy...'))
 
- 
+
     return {
         getClick() {
             if (isDestroy) 'is destroy'
