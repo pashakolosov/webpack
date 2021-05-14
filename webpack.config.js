@@ -22,6 +22,11 @@ module.exports = {
             "@style": path.resolve(__dirname, 'src/style'),
         }
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',

@@ -1,3 +1,4 @@
+const $ = require('jquery')
 
 
 function createAnalitics() {
@@ -7,6 +8,7 @@ function createAnalitics() {
 
     printClicks(counter)
     printTime()
+    $('#destroy').on('click', () => $('#desptoyp').html('is destroy...'))
 
  
     return {
@@ -17,26 +19,26 @@ function createAnalitics() {
 
         destroy() {
             isDestroy = true
-            document.removeEventListener('click', listener)
+            (document).off('click', listener)
         }
-    }
+    } 
 }
 
 
 printClicks = (counter) => { 
     let list = () => ++counter
 
-    document.getElementById('analitics').addEventListener('click', () => {
+    $('#analitics').on('click', () => {
         list()
-        document.getElementById('analiticsp').innerHTML = `${counter} clicks`
+        $('#analiticsp').html(`${counter} clicks`)
     })
 }
 
 printTime = () => {
     const post = new Date()
 
-    document.getElementById('time').addEventListener('click', () => {
-        document.getElementById('timep').innerHTML = post
+    $('#time').on('click', () => {
+        $('#timep').html(post)
     })
 }
 
