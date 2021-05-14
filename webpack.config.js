@@ -27,6 +27,10 @@ module.exports = {
             chunks: 'all'
         }
     },
+    devServer: {
+        port: process.env.port || 4200,
+        open: true
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',

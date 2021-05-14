@@ -11,8 +11,7 @@ import "@assets/fonts/Roboto-Regular.ttf"
 
 const post = new Post('webpack', logo);
 
-$('pre').html(post.toString())
-
+$('pre').html(post.toString()).addClass('code')
 console.log(post.toString())
 console.log('Json', json)
 console.log('XML', xml)
