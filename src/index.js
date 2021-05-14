@@ -1,18 +1,19 @@
-import Post from './Post'
+import $ from "jquery"
+import "normalize.css"
+import Post from '@models/Post'
+import '@style/style.css'
+import json from '@assets/json'
+import xml from '@assets/data.xml'
+import csv from '@assets/data.csv'
+import logo from '@assets/webpack-logo.png'
+import "@assets/fonts/Roboto-Regular.ttf"
 
-function info() {
-    const post = new Post()
-    console.log(post.time())
-    console.log(post.toString())
-}
 
-function changeTime() {
-    const post = new Post();
-    const times = document.getElementById("time");
-    times.innerHTML = post.date
-}
+const post = new Post('webpack', logo);
 
-document.getElementById('foo').addEventListener('click', () => {
-    info()
-    changeTime()
-})
+$('pre').html(post.toString())
+
+console.log(post.toString())
+console.log('Json', json)
+console.log('XML', xml)
+console.log('csv', csv)

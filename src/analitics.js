@@ -1,34 +1,52 @@
+
+
 function createAnalitics() {
+    
+    let isDestroy = false;
     let counter = 0;
-    let isDestroid = false;
 
-    const listener = () => counter++
+    printClicks(counter)
+    printTime()
 
-    document.addEventListener('click', listener) 
-
+ 
     return {
-        destroy() {
-            isDestroid = true
-            document.removeEventListener('click', listener)
-            console.log('isDestroy')
+        getClick() {
+            if (isDestroy) 'is destroy'
+            return counter
         },
 
-        getClick() {
-            if (isDestroid) {
-                return 'Analitic is destroed'
-            }
-            return counter
+        destroy() {
+            isDestroy = true
+            document.removeEventListener('click', listener)
         }
     }
 }
 
-let an = createAnalitics()
 
-function innerText() {
-    document.getElementById('analitics').innerHTML = `аналитика: ${an.getClick()}`
-    console.log('innerText')
+printClicks = (counter) => { 
+    let list = () => ++counter
+
+    document.getElementById('analitics').addEventListener('click', () => {
+        list()
+        document.getElementById('analiticsp').innerHTML = `${counter} clicks`
+    })
 }
 
-document.getElementById('an').addEventListener('click', innerText);
-document.getElementById('des').addEventListener('click', an.destroy);
+printTime = () => {
+    const post = new Date()
+
+    document.getElementById('time').addEventListener('click', () => {
+        document.getElementById('timep').innerHTML = post
+    })
+}
+
+
+createAnalitics()
+
+
+
+
+
+
+
 
